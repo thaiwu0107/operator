@@ -1,0 +1,1017 @@
+{
+  "openapi": "3.0.0",
+  "servers": [
+    {
+      "url": "http://127.0.0.1:3000/"
+    }
+  ],
+  "info": {
+    "title": "Operator API",
+    "description": "關於Operator有關的操作",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/operator": {
+      "get": {
+        "summary": "Operator",
+        "description": "取得所有Operator的列表\n",
+        "tags": [
+          "Operator"
+        ],
+        "responses": {
+          "200": {
+            "description": "An Operator list",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "required": [
+                    "status",
+                    "result"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "integer"
+                    },
+                    "result": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "OperatorIdx": {
+                            "type": "number"
+                          },
+                          "OperatorID": {
+                            "type": "string"
+                          },
+                          "OperatorCard": {
+                            "type": "string"
+                          },
+                          "OperatorPW": {
+                            "type": "string"
+                          },
+                          "Active": {
+                            "type": "number"
+                          },
+                          "OperatorName": {
+                            "type": "string"
+                          },
+                          "OperatorPhone": {
+                            "type": "string"
+                          },
+                          "OperatorGender": {
+                            "type": "number"
+                          },
+                          "Address": {
+                            "type": "string"
+                          },
+                          "CountryCode": {
+                            "type": "number"
+                          },
+                          "FailTimes": {
+                            "type": "number"
+                          },
+                          "LastModifyTime": {
+                            "type": "string"
+                          },
+                          "JoinDate": {
+                            "type": "string"
+                          },
+                          "RoleIdx": {
+                            "type": "number"
+                          },
+                          "RoleName": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "application/vnd.api+json; charset=utf-8": {
+                "schema": {
+                  "required": [
+                    "status",
+                    "result"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "integer"
+                    },
+                    "result": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "OperatorIdx": {
+                            "type": "number"
+                          },
+                          "OperatorID": {
+                            "type": "string"
+                          },
+                          "OperatorCard": {
+                            "type": "string"
+                          },
+                          "OperatorPW": {
+                            "type": "string"
+                          },
+                          "Active": {
+                            "type": "number"
+                          },
+                          "OperatorName": {
+                            "type": "string"
+                          },
+                          "OperatorPhone": {
+                            "type": "string"
+                          },
+                          "OperatorGender": {
+                            "type": "number"
+                          },
+                          "Address": {
+                            "type": "string"
+                          },
+                          "CountryCode": {
+                            "type": "number"
+                          },
+                          "FailTimes": {
+                            "type": "number"
+                          },
+                          "LastModifyTime": {
+                            "type": "string"
+                          },
+                          "JoinDate": {
+                            "type": "string"
+                          },
+                          "RoleIdx": {
+                            "type": "number"
+                          },
+                          "RoleName": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "application/json": {
+                "examples": {
+                  "response": {
+                    "value": {
+                      "status": 1,
+                      "result": [
+                        {
+                          "OperatorIdx": 1,
+                          "OperatorID": "admin",
+                          "OperatorCard": "09160711",
+                          "OperatorPW": "0000",
+                          "Active": 1,
+                          "OperatorName": "Admin",
+                          "OperatorPhone": "1233",
+                          "OperatorGender": 1,
+                          "Address": "2323",
+                          "CountryCode": 1,
+                          "FailTimes": 0,
+                          "JoinDate": "2016-06-14T16:00:00.000Z",
+                          "LastModifyTime": "2017-09-29T07:24:44.123Z",
+                          "RoleIdx": 5,
+                          "RoleName": "Casino Manager"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/operator/{idx}": {
+      "put": {
+        "summary": "update one operator",
+        "description": "update one operator",
+        "parameters": [
+          {
+            "name": "idx",
+            "in": "path",
+            "description": "Operator的Id",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "format": "number",
+              "default": 868
+            }
+          }
+        ],
+        "tags": [
+          "Operator"
+        ],
+        "responses": {
+          "200": {
+            "description": "update one operator",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "required": [
+                    "status",
+                    "result"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "number"
+                    },
+                    "result": {
+                      "required": [
+                        "OperatorID",
+                        "OperatorCard",
+                        "OperatorPW",
+                        "OperatorImg",
+                        "Active",
+                        "OperatorName",
+                        "OperatorPhone",
+                        "OperatorGender",
+                        "Address",
+                        "CountryCode",
+                        "FailTimes",
+                        "LastModifyTime",
+                        "JoinDate",
+                        "OperatorIdx"
+                      ],
+                      "properties": {
+                        "OperatorID": {
+                          "type": "string"
+                        },
+                        "OperatorCard": {
+                          "type": "string"
+                        },
+                        "OperatorPW": {
+                          "type": "string"
+                        },
+                        "OperatorImg": {
+                          "type": "string"
+                        },
+                        "Active": {
+                          "type": "number"
+                        },
+                        "OperatorName": {
+                          "type": "string"
+                        },
+                        "OperatorPhone": {
+                          "type": "string"
+                        },
+                        "OperatorGender": {
+                          "type": "number"
+                        },
+                        "Address": {
+                          "type": "string"
+                        },
+                        "CountryCode": {
+                          "type": "number"
+                        },
+                        "FailTimes": {
+                          "type": "number"
+                        },
+                        "LastModifyTime": {
+                          "type": "string"
+                        },
+                        "JoinDate": {
+                          "type": "string"
+                        },
+                        "OperatorIdx": {
+                          "type": "number"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "application/vnd.api+json; charset=utf-8": {
+                "schema": {
+                  "required": [
+                    "status",
+                    "result"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "number"
+                    },
+                    "result": {
+                      "required": [
+                        "OperatorID",
+                        "OperatorCard",
+                        "OperatorPW",
+                        "OperatorImg",
+                        "Active",
+                        "OperatorName",
+                        "OperatorPhone",
+                        "OperatorGender",
+                        "Address",
+                        "CountryCode",
+                        "FailTimes",
+                        "LastModifyTime",
+                        "JoinDate",
+                        "OperatorIdx"
+                      ],
+                      "properties": {
+                        "OperatorID": {
+                          "type": "string"
+                        },
+                        "OperatorCard": {
+                          "type": "string"
+                        },
+                        "OperatorPW": {
+                          "type": "string"
+                        },
+                        "OperatorImg": {
+                          "type": "string"
+                        },
+                        "Active": {
+                          "type": "number"
+                        },
+                        "OperatorName": {
+                          "type": "string"
+                        },
+                        "OperatorPhone": {
+                          "type": "string"
+                        },
+                        "OperatorGender": {
+                          "type": "number"
+                        },
+                        "Address": {
+                          "type": "string"
+                        },
+                        "CountryCode": {
+                          "type": "number"
+                        },
+                        "FailTimes": {
+                          "type": "number"
+                        },
+                        "LastModifyTime": {
+                          "type": "string"
+                        },
+                        "JoinDate": {
+                          "type": "string"
+                        },
+                        "OperatorIdx": {
+                          "type": "number"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "status": {
+                "examples": {
+                  "response": {
+                    "value": 1
+                  }
+                }
+              },
+              "result": {
+                "examples": {
+                  "response": {
+                    "value": {
+                      "OperatorID": "adminddddd",
+                      "OperatorCard": "23666275",
+                      "OperatorPW": "0000",
+                      "OperatorImg": "sfddf",
+                      "Active": 1,
+                      "OperatorName": "affcc",
+                      "OperatorPhone": "1233",
+                      "OperatorGender": 1,
+                      "Address": "2323",
+                      "CountryCode": 0,
+                      "FailTimes": 0,
+                      "LastModifyTime": "2017-10-03T07:11:17.216Z",
+                      "JoinDate": "2017-09-30T02:46:10.430Z",
+                      "OperatorIdx": 868
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json; charset=utf-8": {
+              "schema": {
+                "required": [
+                  "reqData"
+                ],
+                "properties": {
+                  "reqData": {
+                    "properties": {
+                      "OperatorID": {
+                        "type": "string",
+                        "default": "sdfsdfdsffsfs"
+                      },
+                      "OperatorPW": {
+                        "type": "string",
+                        "default": "0000"
+                      },
+                      "OperatorImg": {
+                        "type": "string",
+                        "default": "sdfsdfdsffsfs"
+                      },
+                      "Active": {
+                        "type": "number",
+                        "default": 1
+                      },
+                      "OperatorName": {
+                        "type": "string",
+                        "default": "SDFDF"
+                      },
+                      "OperatorPhone": {
+                        "type": "string"
+                      },
+                      "OperatorGender": {
+                        "type": "number"
+                      },
+                      "Address": {
+                        "type": "string",
+                        "default": "tttttsss"
+                      },
+                      "CountryCode": {
+                        "type": "number"
+                      }
+                    },
+                    "type": "object",
+                    "example": {
+                      "reqData": {
+                        "OperatorID": "sss",
+                        "OperatorGender": 1,
+                        "Address": "tttttsss"
+                      }
+                    }
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "application/vnd.api+json; charset=utf-8": {
+              "schema": {
+                "required": [
+                  "reqData"
+                ],
+                "properties": {
+                  "reqData": {
+                    "properties": {
+                      "OperatorID": {
+                        "type": "string",
+                        "default": "sdfsdfdsffsfs"
+                      },
+                      "OperatorPW": {
+                        "type": "string",
+                        "default": "0000"
+                      },
+                      "OperatorImg": {
+                        "type": "string",
+                        "default": "sdfsdfdsffsfs"
+                      },
+                      "Active": {
+                        "type": "number",
+                        "default": 1
+                      },
+                      "OperatorName": {
+                        "type": "string",
+                        "default": "SDFDF"
+                      },
+                      "OperatorPhone": {
+                        "type": "string"
+                      },
+                      "OperatorGender": {
+                        "type": "number"
+                      },
+                      "Address": {
+                        "type": "string",
+                        "default": "tttttsss"
+                      },
+                      "CountryCode": {
+                        "type": "number"
+                      }
+                    },
+                    "type": "object",
+                    "example": {
+                      "reqData": {
+                        "OperatorID": "sss",
+                        "OperatorGender": 1,
+                        "Address": "tttttsss"
+                      }
+                    }
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "description": "reqData",
+          "required": true
+        }
+      }
+    },
+    "/operator/base64/{idx}": {
+      "get": {
+        "summary": "get one operator",
+        "description": "get one operator\n",
+        "parameters": [
+          {
+            "name": "idx",
+            "in": "path",
+            "description": "Operator的Idx",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "format": "number",
+              "default": 1
+            }
+          }
+        ],
+        "tags": [
+          "Operator"
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of price estimates by product",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "required": [
+                    "status",
+                    "result"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "number"
+                    },
+                    "result": {
+                      "properties": {
+                        "OperatorIdx": {
+                          "type": "number"
+                        },
+                        "OperatorID": {
+                          "type": "string"
+                        },
+                        "OperatorCard": {
+                          "type": "string"
+                        },
+                        "OperatorPW": {
+                          "type": "string"
+                        },
+                        "OperatorImg": {
+                          "type": "string"
+                        },
+                        "Active": {
+                          "type": "number"
+                        },
+                        "OperatorName": {
+                          "type": "string"
+                        },
+                        "OperatorPhone": {
+                          "type": "string"
+                        },
+                        "OperatorGender": {
+                          "type": "number"
+                        },
+                        "Address": {
+                          "type": "string"
+                        },
+                        "CountryCode": {
+                          "type": "number"
+                        },
+                        "FailTimes": {
+                          "type": "number"
+                        },
+                        "LastModifyTime": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "application/vnd.api+json; charset=utf-8": {
+                "schema": {
+                  "required": [
+                    "status",
+                    "result"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "number"
+                    },
+                    "result": {
+                      "properties": {
+                        "OperatorIdx": {
+                          "type": "number"
+                        },
+                        "OperatorID": {
+                          "type": "string"
+                        },
+                        "OperatorCard": {
+                          "type": "string"
+                        },
+                        "OperatorPW": {
+                          "type": "string"
+                        },
+                        "OperatorImg": {
+                          "type": "string"
+                        },
+                        "Active": {
+                          "type": "number"
+                        },
+                        "OperatorName": {
+                          "type": "string"
+                        },
+                        "OperatorPhone": {
+                          "type": "string"
+                        },
+                        "OperatorGender": {
+                          "type": "number"
+                        },
+                        "Address": {
+                          "type": "string"
+                        },
+                        "CountryCode": {
+                          "type": "number"
+                        },
+                        "FailTimes": {
+                          "type": "number"
+                        },
+                        "LastModifyTime": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "status": {
+                "examples": {
+                  "response": {
+                    "value": 1
+                  }
+                }
+              },
+              "result": {
+                "examples": {
+                  "response": {
+                    "value": [
+                      {
+                        "OperatorIdx": 1,
+                        "OperatorID": "admin",
+                        "OperatorCard": "00000001",
+                        "OperatorPW": "0000",
+                        "OperatorImg": "sdfdsf",
+                        "Active": 1,
+                        "OperatorName": "Admin",
+                        "OperatorPhone": "",
+                        "OperatorGender": 1,
+                        "Address": "",
+                        "CountryCode": 1,
+                        "FailTimes": 0,
+                        "LastModifyTime": "2015-05-19T05:55:23.786Z"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/operator/image/base64/{idx}": {
+      "get": {
+        "summary": "get one operator image base64",
+        "description": "get one operator image buffarray",
+        "parameters": [
+          {
+            "name": "idx",
+            "in": "path",
+            "description": "Operator的Id",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "format": "number",
+              "default": 1
+            }
+          }
+        ],
+        "tags": [
+          "Operator"
+        ],
+        "responses": {
+          "200": {
+            "description": "get one operator image base64",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "required": [
+                    "status",
+                    "result"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "number"
+                    },
+                    "result": {
+                      "required": [
+                        "OperatorIdx",
+                        "OperatorImg"
+                      ],
+                      "properties": {
+                        "OperatorIdx": {
+                          "type": "number"
+                        },
+                        "OperatorImg": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "application/vnd.api+json; charset=utf-8": {
+                "schema": {
+                  "required": [
+                    "status",
+                    "result"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "number"
+                    },
+                    "result": {
+                      "required": [
+                        "OperatorIdx",
+                        "OperatorImg"
+                      ],
+                      "properties": {
+                        "OperatorIdx": {
+                          "type": "number"
+                        },
+                        "OperatorImg": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "update one operator image",
+        "description": "get one operator image buffarray",
+        "parameters": [
+          {
+            "name": "idx",
+            "in": "path",
+            "description": "Operator的Id",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "format": "number",
+              "default": 868
+            }
+          }
+        ],
+        "tags": [
+          "Operator"
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of price estimates by product",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "required": [
+                    "status",
+                    "result"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "number"
+                    },
+                    "result": {
+                      "properties": {
+                        "OperatorIdx": {
+                          "type": "number"
+                        },
+                        "OperatorID": {
+                          "type": "string"
+                        },
+                        "OperatorCard": {
+                          "type": "string"
+                        },
+                        "OperatorPW": {
+                          "type": "string"
+                        },
+                        "OperatorImg": {
+                          "type": "string"
+                        },
+                        "Active": {
+                          "type": "number"
+                        },
+                        "OperatorName": {
+                          "type": "string"
+                        },
+                        "OperatorPhone": {
+                          "type": "string"
+                        },
+                        "OperatorGender": {
+                          "type": "number"
+                        },
+                        "Address": {
+                          "type": "string"
+                        },
+                        "CountryCode": {
+                          "type": "number"
+                        },
+                        "FailTimes": {
+                          "type": "number"
+                        },
+                        "LastModifyTime": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object",
+                      "example": {
+                        "reqData": {
+                          "OperatorImg": "sss"
+                        }
+                      }
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "application/vnd.api+json; charset=utf-8": {
+                "schema": {
+                  "required": [
+                    "status",
+                    "result"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "number"
+                    },
+                    "result": {
+                      "properties": {
+                        "OperatorIdx": {
+                          "type": "number"
+                        },
+                        "OperatorID": {
+                          "type": "string"
+                        },
+                        "OperatorCard": {
+                          "type": "string"
+                        },
+                        "OperatorPW": {
+                          "type": "string"
+                        },
+                        "OperatorImg": {
+                          "type": "string"
+                        },
+                        "Active": {
+                          "type": "number"
+                        },
+                        "OperatorName": {
+                          "type": "string"
+                        },
+                        "OperatorPhone": {
+                          "type": "string"
+                        },
+                        "OperatorGender": {
+                          "type": "number"
+                        },
+                        "Address": {
+                          "type": "string"
+                        },
+                        "CountryCode": {
+                          "type": "number"
+                        },
+                        "FailTimes": {
+                          "type": "number"
+                        },
+                        "LastModifyTime": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object",
+                      "example": {
+                        "reqData": {
+                          "OperatorImg": "sss"
+                        }
+                      }
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "status": {
+                "examples": {
+                  "response": {
+                    "value": 1
+                  }
+                }
+              },
+              "result": {
+                "examples": {
+                  "response": {
+                    "value": [
+                      {
+                        "OperatorIdx": 1,
+                        "OperatorID": "admin",
+                        "OperatorCard": "00000001",
+                        "OperatorPW": "0000",
+                        "OperatorImg": "sdfdsf",
+                        "Active": 1,
+                        "OperatorName": "Admin",
+                        "OperatorPhone": "",
+                        "OperatorGender": 1,
+                        "Address": "",
+                        "CountryCode": 1,
+                        "FailTimes": 0,
+                        "LastModifyTime": "2015-05-19T05:55:23.786Z"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json; charset=utf-8": {
+              "schema": {
+                "required": [
+                  "reqData"
+                ],
+                "properties": {
+                  "reqData": {
+                    "properties": {
+                      "OperatorImg": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object",
+                    "example": {
+                      "OperatorImg": "sdfsdfsf"
+                    }
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "application/vnd.api+json; charset=utf-8": {
+              "schema": {
+                "required": [
+                  "reqData"
+                ],
+                "properties": {
+                  "reqData": {
+                    "properties": {
+                      "OperatorImg": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object",
+                    "example": {
+                      "OperatorImg": "sdfsdfsf"
+                    }
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "description": "reqData",
+          "required": true
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}
