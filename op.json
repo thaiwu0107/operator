@@ -13,7 +13,17 @@
       "get": {},
       "put": {},
       "post": {},
-      "delete": {}
+      "delete": {},
+      "parameters": [
+        {
+          "name": "idx",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        }
+      ]
     }
   }
 }
